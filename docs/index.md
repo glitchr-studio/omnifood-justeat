@@ -8,6 +8,25 @@ composer require glitchr/omnifood omnifood/justeat
 
 ## Configuration
 
+```php
+use Omnifood\JustEat\JustEatPlatformFactory;
+use Symfony\Component\HttpClient\HttpClient;
+
+$justeat = (new JustEatPlatformFactory(HttpClient::create()))->create([
+    'api_key' => getenv('JUSTEAT_API_KEY') ?: null,
+    'restaurant' => getenv('JUSTEAT_RESTAURANT') ?: null,
+    'webhook_key' => getenv('JUSTEAT_WEBHOOK_KEY') ?: null,
+    'webhook_secret' => getenv('JUSTEAT_WEBHOOK_SECRET') ?: null,
+    'currency' => 'EUR',
+    'timezone' => 'Europe/Dublin',
+]);
+```
+
+The factory takes any `HttpClientInterface` (the application's, a `MockHttpClient` in a test) and
+makes its own when given none; several platforms go in a `Registry`
+([the core's installation](https://github.com/glitchr-studio/omnifood/blob/1.x/docs/installation.md)).
+In a Symfony application, the same options in `config/packages/omnifood.yaml`:
+
 ```yaml
 omnifood:
     platforms:

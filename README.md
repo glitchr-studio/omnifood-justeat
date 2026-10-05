@@ -12,6 +12,24 @@ through **JET Connect**, Just Eat's public point-of-sale API (formerly Flyt).
 > https://uk.api.just-eat.io/docs/jetconnect/openapi.yaml, read on 2026-10-04) and tested against
 > its examples.
 
+```php
+use Omnifood\JustEat\JustEatPlatformFactory;
+use Symfony\Component\HttpClient\HttpClient;
+
+$justeat = (new JustEatPlatformFactory(HttpClient::create()))->create([
+    'api_key' => getenv('JUSTEAT_API_KEY') ?: null,
+    'restaurant' => getenv('JUSTEAT_RESTAURANT') ?: null,
+    'webhook_key' => getenv('JUSTEAT_WEBHOOK_KEY') ?: null,
+    'webhook_secret' => getenv('JUSTEAT_WEBHOOK_SECRET') ?: null,
+    'currency' => 'EUR',
+    'timezone' => 'Europe/Dublin',
+]);
+```
+
+Plain PHP, no framework needed: the factory takes any `HttpClientInterface` - the application's, a
+`MockHttpClient` in a test - and makes its own when given none. In a Symfony application, the same
+options under `omnifood.platforms` ([the bundle](https://github.com/glitchr-studio/omnifood/blob/1.x/docs/symfony.md)):
+
 ```yaml
 omnifood:
     platforms:
