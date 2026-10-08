@@ -3,7 +3,7 @@
     "type": "library",
     "description": "Omnifood Just Eat: the orders JET Connect sends to the restaurant, the menu and the items out of stock, the restaurant set offline and its service times - Just Eat, Takeaway, Skip The Dishes, Menulog - through the public JET Connect API.",
     "keywords": ["restaurant", "delivery", "justeat", "takeaway", "jet-connect", "omnifood"],
-    "license": "LGPL-3.0-or-later",
+    "license": "MIT",
     "authors": [{"name": "Marco Meyer", "email": "marco.meyer@glitchr.io"}],
     "require": {
         "php": ">=8.2",

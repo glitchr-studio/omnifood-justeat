@@ -95,4 +95,4 @@ Not sent: `Hours::$exceptions` (no call for dates apart: a closed day is a `paus
   (receive order, cancel, driver status, backup flow, temporarily offline), with an **API key**
   and/or an **HMAC secret** for them; static IPs on request.
 
-License: LGPL-3.0-or-later.
+License: MIT since 2026-10-09; earlier versions remain published under LGPL-3.0-or-later.
